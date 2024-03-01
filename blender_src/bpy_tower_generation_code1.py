@@ -17,7 +17,7 @@ floor_mat_nodes = floor_mat.node_tree.nodes
 
 # let's set the metallic to 1.0
 #floor_mat_nodes['Principled BSDF'].inputs['Base Color'].default_value=(0.319199, 0.66187, 0.66187, 0.8) #blue teal
-floor_mat_nodes['Principled BSDF'].inputs['Base Color'].default_value=(0.448, 0.621, 0.584, 1) #greyish table in ECCL
+floor_mat_nodes['Principled BSDF'].inputs['Base Color'].default_value=(0.464, 0.278, 0.621, 1) #greyish table in ECCL
 
 #(0.1, 0.2, 0.2, 0.8)
 floor_mat_nodes['Principled BSDF'].inputs['Roughness'].default_value=1.0
@@ -26,12 +26,11 @@ wall_mat = bpy.data.materials.new(name = "Wall")
 wall_mat.use_nodes = True
 # let's create a variable to store our list of nodes
 wall_mat_nodes = wall_mat.node_tree.nodes
-wall_mat_nodes['Principled BSDF'].inputs['Base Color'].default_value=(0.209, 0.888, 0.721, 0.8) #green wall in ECCL
+wall_mat_nodes['Principled BSDF'].inputs['Base Color'].default_value=(0.459, 0.765, 0.888, 0.8) #green wall in ECCL
     
 def make_surface(mat, loc, rotation = (0,0,0,0),scale=(15.0,15.0,0.1)):
     # floor = bpy.ops.mesh.primitive_plane_add(size = 10, location=(0.0, 0.0, -0.05))
-    # surf = bpy.ops.mesh.primitive_cube_add(size = 15, location=loc, scale = scale)
-    surf = bpy.ops.mesh.primitive_plane_add(size = 25, location=loc)
+    surf = bpy.ops.mesh.primitive_cube_add(size = 1, location=loc, scale = scale)
     bpy.context.object.rotation_mode = 'QUATERNION'
     bpy.context.object.rotation_quaternion=rotation
 
@@ -58,8 +57,8 @@ def make_surface(mat, loc, rotation = (0,0,0,0),scale=(15.0,15.0,0.1)):
         # no slots
         floor.data.materials.append(mat)
     
-make_surface(floor_mat,loc = (0.0, 0.0, -0.05), rotation = (0,0,0,0), scale=(25.0,25.0,0.1))
-make_surface(wall_mat,loc = (0.0, -25, 0), rotation = (0.707,-0.707, 0,0))
+#make_surface(floor_mat,loc = (0.0, 0.0, -0.05), rotation = (0,0,0,0), scale=(25.0,25.0,0.1))
+#make_surface(wall_mat,loc = (0.0, -25, 0), rotation = (0.707,-0.707, 0,0))
 
 #bpy.ops.wm.obj_import(filepath="/Users/kristinezheng/lookit-jenga/blender_src/background_wall.obj")
 
@@ -85,8 +84,8 @@ wood_mat_nodes['Principled BSDF'].inputs['Roughness'].default_value=0.167
 jenga_mat = bpy.data.materials.new(name = "Jenga")
 jenga_mat.use_nodes = True
 # let's create a variable to store our list of nodes
-jenga_mat_nodes = jenga_mat.node_tree.nodes
-jenga_mat_nodes['Principled BSDF'].inputs['Base Color'].default_value=(1, 0.549, 0.314, 1) #tan block
+jenga_mat_nodes = floor_mat.node_tree.nodes
+jenga_mat_nodes['Principled BSDF'].inputs['Base Color'].default_value=(0.057, 0.686, 1, 1) #tan block
 
 ########### base tower/block
 obj_dict = {
@@ -119,7 +118,7 @@ obj_dict = {
   }
 
 #######
-path = '/Users/kristinezheng/lookit-jenga/2_20_towers/7978.json'
+path = '/Users/kristinezheng/lookit-jenga/2_20_towers/7979.json'
 with open(path) as file:
     file_contents = file.read()
     
@@ -173,11 +172,12 @@ def make_tower(obj_dict, num_obj = 20, mat=None, x_shift = 0):
     bpy.context.collection.children.link(Tower)
     positions = []
     z_stack = obj_dict['pos'][2]*2
+ 
     x_y_z_dim = (obj_dict['x_size'], obj_dict['y_size'], obj_dict['z_size'])
     current_pos = (obj_dict['pos'][0], obj_dict['pos'][1], obj_dict['pos'][2])
     rotation = obj_dict['ori']
     for i in range(0, num_obj):
-
+#        print(i, obj['pos'])
         bpy.ops.mesh.primitive_cube_add(size=1, location = current_pos, scale = x_y_z_dim)
         bpy.context.object.rotation_mode='QUATERNION'
         bpy.context.object.rotation_quaternion=rotation
@@ -220,35 +220,32 @@ def make_tower(obj_dict, num_obj = 20, mat=None, x_shift = 0):
                 ob.data.materials.append(mat)    
     return Tower, positions
 
-# BlockTower, BlockPositions = make_tower(parsed_dict, wood_mat)
-# num_blocks = 10
-# block_tower, positions = make_tower(obj_dict, num_blocks, jenga_mat, x_shift = 0.15) #0.15, 0, 0.3
+#num_blocks = 10
+#block_tower, positions = make_tower(obj_dict, num_blocks, jenga_mat, x_shift = 0) #0.15, 0, 0.3
 #0,0.3,0.15
 
-### make grease pencil
-bpy.ops.object.gpencil_add(align='WORLD', location=(0, 0, 0), scale=(1, 1, 1), type='LRT_OBJECT')
-gp = bpy.context.active_object
-gp.grease_pencil_modifiers["Line Art"].thickness = 10
-gp.grease_pencil_modifiers["Line Art"].opacity = 0.5
-gp.grease_pencil_modifiers["Line Art"].source_type = 'COLLECTION'
-gp.grease_pencil_modifiers["Line Art"].source_collection = bpy.data.collections["Tower"]
+#### make grease pencil
+#bpy.ops.object.gpencil_add(align='WORLD', location=(0, 0, 0), scale=(1, 1, 1), type='LRT_OBJECT')
+#gp = bpy.context.active_object
+#gp.grease_pencil_modifiers["Line Art"].thickness = 10
+#gp.grease_pencil_modifiers["Line Art"].opacity = 0.5
+#gp.grease_pencil_modifiers["Line Art"].source_type = 'COLLECTION'
+#gp.grease_pencil_modifiers["Line Art"].source_collection = bpy.data.collections["Tower"]
 
-bpy.context.scene.view_layers["ViewLayer"].use_pass_z = True
+#bpy.context.scene.view_layers["ViewLayer"].use_pass_z = True
 
-block_dim = (1.5/1.2,0.5/1.2,0.3/1.2)
-# num_blocks = #len(list(parsed_dict.keys()))
-#add light
-light_data = bpy.data.lights.new("light", type ="SPOT")
-light = bpy.data.objects.new("light", light_data)
-bpy.context.collection.objects.link(light)
-light.location = (0.62, 5.52, 1.78)
-light.rotation_mode = 'QUATERNION'
-light.rotation_quaternion[0] = 0.714
-light.rotation_quaternion[1] = -0.8# , -0.7, -0.002, 0.002)
-light.data.energy = 70
-light.data.diffuse_factor = 10
-light.data.shadow_soft_size = 2
-light.data.use_contact_shadow = True 
+#block_dim = (1.5/1.2,0.5/1.2,0.3/1.2)
+## num_blocks = #len(list(parsed_dict.keys()))
+##add light
+#light_data = bpy.data.lights.new("light", type ="SPOT")
+#light = bpy.data.objects.new("light", light_data)
+#bpy.context.collection.objects.link(light)
+#light.location = (0.62, 5.52, 1.78)
+#light.rotation_quaternion[0] = 0.714# , -0.7, -0.002, 0.002)
+#light.data.energy = 70
+#light.data.diffuse_factor = 10
+#light.data.shadow_soft_size = 2
+#light.data.use_contact_shadow = True 
 
 # light_data = bpy.data.lights.new("light", type ="AREA")
 # light = bpy.data.objects.new("light", light_data)
@@ -286,14 +283,16 @@ light.data.use_contact_shadow = True
 #bpy.ops.transform.resize(value=(1.5,1.5,1.5), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', mirror=False, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
 #bpy.ops.transform.resize(value=(block_dim[0]*2,block_dim[0]*2,prev_block_height), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', mirror=False, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
 
-#create camera
-cam_data = bpy.data.cameras.new('camera')
-cam = bpy.data.objects.new('camera', cam_data)
-bpy.context.collection.objects.link(cam)
-cam.location = (2,12,3)#(4,10,3)
+##create camera
+#cam_data = bpy.data.cameras.new('camera')
+#cam = bpy.data.objects.new('camera', cam_data)
+#bpy.context.collection.objects.link(cam)
+#cam.location = (2,12,3)#(4,10,3)
 
-cam.rotation_mode = "XYZ"
-cam.rotation_euler=(84 * np.pi/180, 0, 175 * np.pi/180)
+
+#cam.rotation_mode = "XYZ"
+#cam.rotation_euler=(84 * np.pi/180, 0, 175 * np.pi/180)
+
 
 t = bpy.data.collections['Tower']
 c_coll = t.objects
@@ -302,12 +301,11 @@ c_coll[1].keyframe_insert("location", frame = 0)
 
 z_stack = obj_dict['pos'][2]*2
 # assume 400 frames, every 20 things  
-# for i in range(1, len(c_coll)-1): 
-for i in range(1, len(c_coll)):
+for i in range(1, len(c_coll)): 
     obj = c_coll[i]
     old_loc = obj.location
-    # obj.location = (old_loc[0],old_loc[1], c_coll[i-1].location[2]+z_stack)
     obj.location = (old_loc[0],old_loc[1], old_loc[2]-10)
+    #c_coll[i-1].location[2]+z_stack)
     obj.keyframe_insert("location", frame = i*20)
     
     if i <len(c_coll):
@@ -316,8 +314,8 @@ for i in range(1, len(c_coll)):
 
 bpy.context.scene.frame_end = len(c_coll)*20
 bpy.context.scene.render.image_settings.file_format = 'FFMPEG'
-bpy.context.scene.render.ffmpeg.codec = 'H264' #video codec
-bpy.context.scene.render.ffmpeg.format = 'MPEG4' #container encoding
+bpy.context.scene.render.ffmpeg.codec = 'H264'
+bpy.context.scene.render.ffmpeg.format = 'MPEG4'
 
 bpy.context.scene.eevee.use_soft_shadows = False
 
