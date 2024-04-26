@@ -47,10 +47,11 @@
                     "title": "Let's Get Started!",
                     "listblocks": [
                         {
-                            "text": "We will now start the experiment! Upon clicking 'Next', your computer will take a moment to activate the camera for video recording and then proceed to display the video. The video will start playing automatically, and your child should click 'Next' whenever they believe the tower is about to fall."
+                            "text": "We will now start the experiment! Upon clicking 'Begin', your computer will take a moment to activate the camera for video recording and then proceed to display the video. The video will start playing automatically, and your child should click 'Next' whenever they believe the tower is about to fall."
                         }
-                    ],
-                    
+                    ]
+                },
+                {
                     "image": {
                         "src": "https://s3.amazonaws.com/9.85-jenga-towers-2/instructions-image.png",
                         "alt": "Example of the demo."
@@ -70,7 +71,7 @@
             "PIName": "Laura Schulz",
             "institution": "Massachusetts Institute of Technology",
             "purpose": "This experiment is a project from the 9.85 course offered at the Massachusetts Institute of Technology. This project aims to investigate when children begin to develop intuitive reasoning about physical phenomena, particularly focusing on their ability to predict the stability of multi-layer block towers. By participating in this study, you're contributing valuable insights into the timeline of cognitive development in early childhood. The observations made during this experiment will provide researchers with critical information on the emergence of intuitive physics reasoning and whether infants can anticipate the stability of complex structures. Thank you for being a part of this exciting exploration into the cognitive development of our little ones!",
-            "procedures": "First you will review some instructions, get set up for the study, and answer a few questions about your child’s motor development. This questionnaire helps us interpret babies’ behavior in the main task. During the study, your child will sit on your lap or in an appropriate chair if you choose. On the screen, there will be blocks that are slowly stacking on top of each other. We ask your child to click a button when they believe the tower will fall. We will also record how long your child looks at each block to learn about what information they notice and pay attention to. There are no expected risks from taking part in this study.",
+            "procedures": "First you will review some instructions, and get set up for the study. This questionnaire helps us interpret babies’ behavior in the main task. During the study, your child will sit on your lap or in an appropriate chair if you choose. On the screen, there will be blocks that are slowly stacking on top of each other. We ask your child to click a button when they believe the tower will fall. We will also record how long your child looks at each block to learn about what information they notice and pay attention to. There are no expected risks from taking part in this study.",
             "payment": "Within about 3 days after participating in this study, we will email you a $7 'Tango card' gift card which you can exchange for credit at a variety of stores. To be eligible for the gift card, your child must be in the age range for this study, you need to submit a valid consent statement, and we need to see that there is a child with you. But we will send a gift card even if you do not finish the whole study or if we are not able to use your child's data. There are no other direct benefits to you or others from taking part in this research.",
             "research_rights_statement": "This research has been reviewed and approved by an Institutional Review Board (“IRB”), a group of people who oversee research involving humans as participants. Information to help you understand research is on-line at https://templatestudiesinstitute.edu/irb. You may talk to a IRB staff member at (123) 456-7890 or IRBAdmin@tsi.edu for any of the following: 1) Your questions, concerns, or complaints are not being answered by the research team; 2) you cannot reach the research team; 3) you want to talk to someone besides the research team; 4) you have questions about your rights as a research subject; 5) you want to get information or provide input about this research.",
             "PIContact": "Kristine Zheng (kxzheng@mit.edu), Haoran Wen (hranwen@mit.edu)"
@@ -106,10 +107,10 @@
         "my-exit-survey": {
             "kind": "exp-lookit-exit-survey",
             "debriefing": {
-                "text": "One way scientists discover how babies develop and learn--and how humans think in general--is to ask what's in the child brain's \"toolbox\" and what’s learned from experience. In this study, we asked whether babies can already imagine objects rotating. In order to understand and use the objects in their environment, babies need to know - or figure out - that a single object can look very different when viewed from different angles. This is called mental rotation, and we use it in lots of ways - for understanding objects, mathematical reasoning, and navigating the world. <br><br>One possibility is that babies get lots of experience seeing objects at different angles, and gradually learn to \"group\" those different views. Eventually, no matter what angle they see the object from, they’ll know it still belongs to that group. But another possibility is that babies get a \"head start\" on this problem because they can already imagine objects moving around and rotating. <br><br>We tested this by recording how your child looked at images of Tetris-like blocks, either rotated (as if seen from a different angle) or transformed (e.g., a mirror image). Above is a picture of all the different tetris blocks that your child saw during the study. Your child’s pattern of looking helps to answer the question of whether mental rotation is a core, built-in ability or something that is learned through experience. That in turn can inform how active a role your child plays in their own learning!<br><br>Thank you for participating in our study! Within three days, once we confirm your consent video, we will email you a $7 Tango gift card which you can exchange for credit at a variety of stores. If you have any questions, please don’t hesitate to contact us at templatelab@tsi.edu! <br><br> We thank Scott Holmes (www.scottholmesmusic.com) for the song, Storybook, used in the instructional videos.",
+                "text": "One way scientists discover how babies develop and learn--and how humans think in general--is to ask what's in the child brain's \"toolbox\" and what’s learned from experience. In this study, we asked whether children can already mentally reason about physics, such as gravity. In order to understand and use the objects in their environment, babies need to know - or figure out - how objects interact with each other when stacked or balance. We tested this by recording how your child looked at and reasoned about videos of “Jenga” like tower stacking, with blocks being placed one by one on each other with no, little, or some offset. They were asked to click the ‘Next’ button when they believed the tower would fall.  Above is a picture from all the videos that your child saw during the study. Your child’s pattern of looking and decision about the towers falling helps to answer the question of whether stability reasoning is a is a core, built-in ability or something that is learned through experience. That in turn can inform how active a role your child plays in their own learning!<br><br>Thank you for participating in our study! Within three days, once we confirm your consent video, we will email you a $7 Tango gift card which you can exchange for credit at a variety of stores. If you have any questions, please don’t hesitate to contact us at kxzheng@mit.edu & hranwen@mit.edu! <br><br>",
                 "image": {
-                    "src": "https://raw.githubusercontent.com/lookit/template-study-stim/master/tetris/img/debriefing_stimuli.png",
-                    "alt": "image of all the tetris blocks used in the study"
+                    "src": "https://s3.amazonaws.com/9.85-jenga-towers-2/video+screenshots+1.png",
+                    "alt": "video screenshots"
                 },
                 "title": "Thank you for participating in our study!"
             }
@@ -146,7 +147,7 @@
                 "showPreviousButton": false,
                 "kind": "exp-lookit-video",
                 "parentTextBlock": {
-                    "text": "Click 'next' whenever you think the tower will fall."
+                    "text": "Click 'Next' whenever you think the tower will fall."
                 },
                 "backgroundColor": "white",
                 "requiredDuration": 0,
