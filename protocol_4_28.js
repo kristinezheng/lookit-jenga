@@ -1,8 +1,10 @@
 function generateProtocol() {
     let allsequences = [
         ["IMG_7972.mp4", "IMG_8321.mp4", "IMG_8890.mp4"],
-        ["IMG_8321.mp4", "IMG_7972.mp4", "IMG_8890.mp4"],
-        ["IMG_8890.mp4", "IMG_7972.mp4", "IMG_8321.mp4"]
+        ["IMG_7973.mp4", "IMG_7982.mp4", "IMG_8866.mp4"],
+        ["IMG_7974.mp4", "IMG_7993.mp4", "IMG_8886.mp4"],
+        ["IMG_7978.mp4", "IMG_8305.mp4", "IMG_8889.mp4"],
+        ["IMG_7979.mp4", "IMG_8315.mp4", "IMG_8895.mp4"]
     ]
 
     let frames = {
@@ -138,24 +140,55 @@ function generateProtocol() {
         }
 
     }
+    
+    // function shuffle(array) {
+    //     // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array 
+    //     let currentIndex = array.length;
+      
+    //     // While there remain elements to shuffle...
+    //     while (currentIndex !== 0) {
+      
+    //       // Pick a remaining element...
+    //       let randomIndex = Math.floor(Math.random() * currentIndex);
+    //       currentIndex--;
+      
+    //       // And swap it with the current element.
+    //       [array[currentIndex], array[randomIndex]] = [
+    //         array[randomIndex], array[currentIndex]];
+    //     }
+    //     return array;
+    //   }
 
-    let selectedSequenceIndex = Math.floor(Math.random(3) * allsequences.length);
+    /* Randomize array in-place using Durstenfeld shuffle algorithm */
+    function shuffleArray(array) {
+        let arrayCopy = array.slice();
+        for (var i = arrayCopy.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = arrayCopy[i];
+            arrayCopy[i] = arrayCopy[j];
+            arrayCopy[j] = temp;
+        }
+        return arrayCopy; // Return the shuffled copy
+    }
+
+
+    let selectedSequenceIndex = Math.floor(Math.random() * allsequences.length);
     let basedir = "https://myblocks.s3.us-east-2.amazonaws.com/"
     console.log(selectedSequenceIndex)
+    console.log(allsequences[selectedSequenceIndex])
+    // let video1_source = basedir.concat(allsequences[selectedSequenceIndex][0])
+    // let video2_source = basedir.concat(allsequences[selectedSequenceIndex][1])
+    // let video3_source = basedir.concat(allsequences[selectedSequenceIndex][2])
 
-    let video1_source = basedir.concat(allsequences[selectedSequenceIndex][0])
-    let video2_source = basedir.concat(allsequences[selectedSequenceIndex][1])
-    let video3_source = basedir.concat(allsequences[selectedSequenceIndex][2])
+    let permuted_sequence = shuffleArray(allsequences[selectedSequenceIndex])
+    console.log("shuffled")
+    console.log(permuted_sequence)
 
-    // let video1_source = allsequences[selectedSequenceIndex][0]
-    // let video2_source = allsequences[selectedSequenceIndex][1]
-    // let video3_source = allsequences[selectedSequenceIndex][2]
+    let video1_source = basedir.concat(permuted_sequence[0])
+    let video2_source = basedir.concat(permuted_sequence[1])
+    let video3_source = basedir.concat(permuted_sequence[2])
 
-    console.log(video1_source);
-    console.log(video2_source);
-    console.log(video3_source);
-
-    // let bt = {
+    // // let btrials = {
     //     "sampler": "permute",
     //     "kind": "choice",
     //     "id": "block-video",
@@ -173,7 +206,7 @@ function generateProtocol() {
     //         "restartAfterPause": true,
     //         "nextButtonEnabled": false
     //     },
-    //     "frameList": [{
+    //     "frameOptions": [{
     //             "video": {
     //                 "width": 100,
     //                 "loop": false,
@@ -207,6 +240,8 @@ function generateProtocol() {
     //     ]
 
     // }
+    // frames["block-trials"] = btrials;
+    // console.log(btrials)
 
     let bt1 = {
 
@@ -303,6 +338,8 @@ function generateProtocol() {
     frames["block-trials1"] = bt1;
     frames["block-trials2"] = bt2;
     frames["block-trials3"] = bt3;
+
+    
     
     let t = {
             "kind": "exp-lookit-video",
@@ -329,20 +366,17 @@ function generateProtocol() {
         
     frames["test"] = t;
 
-    console.log(frames["block-trials1"]);
+    // console.log(frames["block-trials1"]);
 
     let sequences = [
         "instructions",
         "video-config",
-        // "test",
-        "block-trials1",
-        "block-trials2",
-        "block-trials3",
-        // "instructions",
-        // "video-config",
         // "video-consent",
         // "positioning-config",
         // "instructions-2",
+        "block-trials1",
+        "block-trials2",
+        "block-trials3",
         // "study-completion",
         // "my-exit-survey"
     ]
