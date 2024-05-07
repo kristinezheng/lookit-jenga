@@ -1,10 +1,17 @@
 function generateProtocol() {
     let allsequences = [
-        ["IMG_7972.mp4", "IMG_8321.mp4", "IMG_8890.mp4"],
-        ["IMG_7973.mp4", "IMG_7982.mp4", "IMG_8866.mp4"],
+        //["IMG_7972.mp4", "IMG_8321.mp4", "IMG_8890.mp4"],
+        //["IMG_7973.mp4", "IMG_7982.mp4", "IMG_8866.mp4"],
+        //["IMG_7974.mp4", "IMG_7993.mp4", "IMG_8886.mp4"],
+        //["IMG_7978.mp4", "IMG_8305.mp4", "IMG_8889.mp4"],
+        //["IMG_7979.mp4", "IMG_8315.mp4", "IMG_8895.mp4"]
+        
+        ["IMG_8317.mp4", "IMG_8321.mp4", "IMG_8890.mp4"],
+        ["IMG_8320.mp4", "IMG_7982.mp4", "IMG_8866.mp4"],
         ["IMG_7974.mp4", "IMG_7993.mp4", "IMG_8886.mp4"],
-        ["IMG_7978.mp4", "IMG_8305.mp4", "IMG_8889.mp4"],
+        ["IMG_7978.mp4", "IMG_8873.mp4", "IMG_8889.mp4"],
         ["IMG_7979.mp4", "IMG_8315.mp4", "IMG_8895.mp4"]
+
     ]
 
     let frames = {
@@ -63,17 +70,28 @@ function generateProtocol() {
             "kind": "exp-video-config",
             "troubleshootingIntro": "If you're having any trouble getting your webcam set up, please feel free to call Aaron, the graduate student researcher for this project, at (123) 456-7890 and we'd be glad to help you out!"
         },
+        "start-recording-with-video": {
+            "kind": "exp-lookit-start-recording",
+            "baseDir": "https://www.mit.edu/~kimscott/placeholderstimuli/",
+            "videoTypes": [
+                "webm",
+                "mp4"
+            ],
+            "video": "attentiongrabber",
+            "displayFullscreen": true,
+            "waitForVideoMessage": " "
+        },
         "video-consent": {
             "gdpr": false,
             "kind": "exp-lookit-video-consent",
             "template": "consent_002",
             "PIName": "Laura Schulz",
             "institution": "Massachusetts Institute of Technology",
-            "purpose": "This experiment is a project from the 9.85 course offered at the Massachusetts Institute of Technology. This project aims to investigate when children begin to develop intuitive reasoning about physical phenomena, particularly focusing on their ability to predict the stability of multi-layer block towers. By participating in this study, you're contributing valuable insights into the timeline of cognitive development in early childhood. The observations made during this experiment will provide researchers with critical information on the emergence of intuitive physics reasoning and whether infants can anticipate the stability of complex structures. Thank you for being a part of this exciting exploration into the cognitive development of our little ones!",
-            "procedures": "First you will review some instructions, and get set up for the study. This questionnaire helps us interpret babies’ behavior in the main task. During the study, your child will sit on your lap or in an appropriate chair if you choose. On the screen, there will be blocks that are slowly stacking on top of each other. We ask your child to click a button when they believe the tower will fall. We will also record how long your child looks at each block to learn about what information they notice and pay attention to. There are no expected risks from taking part in this study.",
+            "purpose": "This experiment is a project from the 9.85 course offered at the Massachusetts Institute of Technology. This study is designed to understand when people start to understand basic physical concepts, especially when it comes to predicting whether a stack of blocks will stay standing or fall over. By participating in this study, you're contributing valuable insights into the timeline of cognitive development in early childhood to adulthood. The observations made during this experiment will provide researchers with critical information on the emergence of intuitive physics reasoning and whether children and adults can anticipate the stability of complex structures being built. Thank you for being a part of this exciting exploration!",
+            "procedures": "First you will review some instructions, and get set up for the study. This questionnaire helps us interpret babies’ behavior in the main task. During the study, your child will sit on your lap or in an appropriate chair if you choose. On the screen, there will be blocks that are slowly stacking on top of each other. We ask your child to watch the video and will record your child’s reactions to the videos to learn about what information they notice and pay attention to. There are no expected risks from taking part in this study.",
             "payment": "Within about 3 days after participating in this study, we will email you a $7 'Tango card' gift card which you can exchange for credit at a variety of stores. To be eligible for the gift card, your child must be in the age range for this study, you need to submit a valid consent statement, and we need to see that there is a child with you. But we will send a gift card even if you do not finish the whole study or if we are not able to use your child's data. There are no other direct benefits to you or others from taking part in this research.",
             "research_rights_statement": "This research has been reviewed and approved by an Institutional Review Board (“IRB”), a group of people who oversee research involving humans as participants. Information to help you understand research is on-line at https://templatestudiesinstitute.edu/irb. You may talk to a IRB staff member at (123) 456-7890 or IRBAdmin@tsi.edu for any of the following: 1) Your questions, concerns, or complaints are not being answered by the research team; 2) you cannot reach the research team; 3) you want to talk to someone besides the research team; 4) you have questions about your rights as a research subject; 5) you want to get information or provide input about this research.",
-            "PIContact": "Kristine Zheng (kxzheng@mit.edu), Haoran Wen (hranwen@mit.edu)"
+            "PIContact": "Kristine Zheng (kxzheng@mit.edu)"
         },
         "positioning-config": {
             "kind": "exp-video-config-quality",
@@ -105,7 +123,7 @@ function generateProtocol() {
         "my-exit-survey": {
             "kind": "exp-lookit-exit-survey",
             "debriefing": {
-                "text": "One way scientists discover how babies develop and learn--and how humans think in general--is to ask what's in the child brain's \"toolbox\" and what’s learned from experience. In this study, we asked whether children can already mentally reason about physics, such as gravity. In order to understand and use the objects in their environment, babies need to know - or figure out - how objects interact with each other when stacked or balance. We tested this by recording how your child looked at and reasoned about videos of “Jenga” like tower stacking, with blocks being placed one by one on each other with no, little, or some offset. They were asked to click the ‘Next’ button when they believed the tower would fall.  Above is a picture from all the videos that your child saw during the study. Your child’s pattern of looking and decision about the towers falling helps to answer the question of whether stability reasoning is a is a core, built-in ability or something that is learned through experience. That in turn can inform how active a role your child plays in their own learning!<br><br>Thank you for participating in our study! Within three days, once we confirm your consent video, we will email you a $7 Tango gift card which you can exchange for credit at a variety of stores. If you have any questions, please don’t hesitate to contact us at kxzheng@mit.edu & hranwen@mit.edu! <br><br>",
+                "text": "One way scientists discover how babies develop and learn--and how humans think in general--is to ask what's in the child brain's \"toolbox\" and what’s learned from experience. In this study, we asked whether children can already mentally reason about physics, such as gravity. In order to understand and use the objects in their environment, babies need to know - or figure out - how objects interact with each other when stacked or balance. We tested this by recording how your child looked at and reasoned about videos of “Jenga” like tower stacking, with blocks being placed one by one on each other with no, little, or some offset. They were asked to click the ‘Next’ button when they believed the tower would fall.  Above is a picture from all the videos that your child saw during the study. Your child’s pattern of looking and decision about the towers falling helps to answer the question of whether stability reasoning is a is a core, built-in ability or something that is learned through experience. That in turn can inform how active a role your child plays in their own learning!<br><br>Thank you for participating in our study! Within three days, once we confirm your consent video, we will email you a $7 Tango gift card which you can exchange for credit at a variety of stores. If you have any questions, please don’t hesitate to contact us at kxzheng@mit.edu! <br><br>",
                 "image": {
                     "src": "https://s3.amazonaws.com/9.85-jenga-towers-2/video+screenshots+1.png",
                     "alt": "video screenshots"
@@ -140,18 +158,18 @@ function generateProtocol() {
         }
 
     }
-    
+
     // function shuffle(array) {
     //     // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array 
     //     let currentIndex = array.length;
-      
+
     //     // While there remain elements to shuffle...
     //     while (currentIndex !== 0) {
-      
+
     //       // Pick a remaining element...
     //       let randomIndex = Math.floor(Math.random() * currentIndex);
     //       currentIndex--;
-      
+
     //       // And swap it with the current element.
     //       [array[currentIndex], array[randomIndex]] = [
     //         array[randomIndex], array[currentIndex]];
@@ -259,12 +277,13 @@ function generateProtocol() {
         "showPreviousButton": false,
 
         "parentTextBlock": {
-            "text": "Watch the video!"
+            "text": "Watch video #1!"
         },
+        //"showProgressBar": true,
         "backgroundColor": "white",
         "doRecording": true,
         "autoProceed": false,
-        "restartAfterPause": true,
+        "restartAfterPause": false,
         "nextButtonEnabled": true,
 
         "basedir": "https://myblocks.s3.us-east-2.amazonaws.com/",
@@ -290,12 +309,12 @@ function generateProtocol() {
         "showPreviousButton": false,
 
         "parentTextBlock": {
-            "text": "Watch the video!"
+            "text": "Watch video #2!"
         },
         "backgroundColor": "white",
         "doRecording": true,
         "autoProceed": false,
-        "restartAfterPause": true,
+        "restartAfterPause": false,
         "nextButtonEnabled": true,
 
         "basedir": "https://myblocks.s3.us-east-2.amazonaws.com/",
@@ -321,12 +340,13 @@ function generateProtocol() {
         "showPreviousButton": false,
 
         "parentTextBlock": {
-            "text": "Watch the video!"
+            "text": "Watch video #3!"
         },
+        //"showProgressBar": true,
         "backgroundColor": "white",
         "doRecording": true,
         "autoProceed": false,
-        "restartAfterPause": true,
+        "restartAfterPause": false,
         "nextButtonEnabled": true,
 
         "basedir": "https://myblocks.s3.us-east-2.amazonaws.com/",
@@ -339,31 +359,29 @@ function generateProtocol() {
     frames["block-trials2"] = bt2;
     frames["block-trials3"] = bt3;
 
-    
-    
     let t = {
-            "kind": "exp-lookit-video",
-            "videoTypes": [
-                "mp4"
-            ],
-            "video": {
-                "top": 5,
-                "left": 0,
-                "width": 100,
-                "loop": false,
-                "source": [{
-                    "src": video2_source,
-                    
-                    "type": "video/mp4"
-                }]
-            },
-            "backgroundColor": "white",
-            "autoProceed": false,
-            "doRecording": false,
-            "requiredDuration": 0,
-            "requiredVideoCount": 1
-        }
-        
+        "kind": "exp-lookit-video",
+        "videoTypes": [
+            "mp4"
+        ],
+        "video": {
+            "top": 5,
+            "left": 0,
+            "width": 100,
+            "loop": false,
+            "source": [{
+                "src": video2_source,
+
+                "type": "video/mp4"
+            }]
+        },
+        "backgroundColor": "white",
+        "autoProceed": false,
+        "doRecording": false,
+        "requiredDuration": 0,
+        "requiredVideoCount": 1
+    }
+
     frames["test"] = t;
 
     // console.log(frames["block-trials1"]);
@@ -371,14 +389,15 @@ function generateProtocol() {
     let sequences = [
         "instructions",
         "video-config",
-        // "video-consent",
-        // "positioning-config",
-        // "instructions-2",
+        //"video-consent",
+        //"positioning-config",
+        //"instructions-2",
+        "start-recording-with-video",
         "block-trials1",
         "block-trials2",
         "block-trials3",
-        // "study-completion",
-        // "my-exit-survey"
+        //"study-completion",
+        "my-exit-survey"
     ]
 
     return {
