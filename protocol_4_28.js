@@ -5,7 +5,7 @@ function generateProtocol() {
         //["IMG_7974.mp4", "IMG_7993.mp4", "IMG_8886.mp4"],
         //["IMG_7978.mp4", "IMG_8305.mp4", "IMG_8889.mp4"],
         //["IMG_7979.mp4", "IMG_8315.mp4", "IMG_8895.mp4"]
-        
+
         ["IMG_8317.mp4", "IMG_8321.mp4", "IMG_8890.mp4"],
         ["IMG_8320.mp4", "IMG_7982.mp4", "IMG_8866.mp4"],
         ["IMG_7974.mp4", "IMG_7993.mp4", "IMG_8886.mp4"],
@@ -20,20 +20,20 @@ function generateProtocol() {
             "blocks": [{
                     "image": {
                         "alt": "Jenga blocks",
-                        "src": "https://i0.wp.com/awarddesign.com/wp-content/uploads/2019/05/619UhnrOfAL.jpg?fit=689%2C1300&ssl=1",
+                        "src": "https://myblocks.s3.us-east-2.amazonaws.com/intro_example.png",
                         "width": 100
                     }
                 },
                 {
                     "title": "Welcome!",
                     "listblocks": [{
-                        "text": "Welcome to “Jenga” block stacking! This exciting study aims to understand when children develop the ability to predict stability of stacked blocks. Follow the instructions below to participate."
+                        "text": "Welcome to playing with block towers! In this study, we are looking at when children develop intuitions about the stability of stacked blocks and whether their emotional expressions as a tower is being built correlate with actual changes in the tower’s stability. Please follow the instructions below to participate."
                     }]
                 },
                 {
                     "title": "Instructions",
                     "listblocks": [{
-                        "text": "In this study, your child will be shown a series of videos stacking blocks one by one."
+                        "text": "In this study, your child will be shown three short videos of block stacking. We will ask your child to watch the video and will record your child’s reactions to the videos to see what they attend to and react to."
                     }]
                 },
                 {
@@ -54,7 +54,7 @@ function generateProtocol() {
             "blocks": [{
                     "title": "Let's Get Started!",
                     "listblocks": [{
-                        "text": "We will now start the experiment! Upon clicking 'Begin', your computer will take a moment to activate the camera for video recording and then proceed to display the video. The video will start playing automatically, and your child should focus on watching the video."
+                        "text": "We will now start the experiment! After you click 'Begin', your computer will take a moment to activate the camera for video recording. You will then see the first block tower movie. The movie will start playing automatically. All your child needs to do is watch the movie. When the movie is over, you can hit the “Next” button to watch the next movie. There are three movies in total."
                     }]
                 },
                 {
@@ -81,17 +81,28 @@ function generateProtocol() {
             "displayFullscreen": true,
             "waitForVideoMessage": " "
         },
+        "stop-recording-with-video": {
+            "kind": "exp-lookit-stop-recording",
+            "baseDir": "https://www.mit.edu/~kimscott/placeholderstimuli/",
+            "videoTypes": [
+                "webm",
+                "mp4"
+            ],
+            "video": "attentiongrabber",
+            "displayFullscreen": true,
+            "waitForUploadMessage": " "
+        },
         "video-consent": {
             "gdpr": false,
             "kind": "exp-lookit-video-consent",
             "template": "consent_002",
             "PIName": "Laura Schulz",
             "institution": "Massachusetts Institute of Technology",
-            "purpose": "This experiment is a project from the 9.85 course offered at the Massachusetts Institute of Technology. This study is designed to understand when people start to understand basic physical concepts, especially when it comes to predicting whether a stack of blocks will stay standing or fall over. By participating in this study, you're contributing valuable insights into the timeline of cognitive development in early childhood to adulthood. The observations made during this experiment will provide researchers with critical information on the emergence of intuitive physics reasoning and whether children and adults can anticipate the stability of complex structures being built. Thank you for being a part of this exciting exploration!",
-            "procedures": "First you will review some instructions, and get set up for the study. This questionnaire helps us interpret babies’ behavior in the main task. During the study, your child will sit on your lap or in an appropriate chair if you choose. On the screen, there will be blocks that are slowly stacking on top of each other. We ask your child to watch the video and will record your child’s reactions to the videos to learn about what information they notice and pay attention to. There are no expected risks from taking part in this study.",
-            "payment": "Within about 3 days after participating in this study, we will email you a $7 'Tango card' gift card which you can exchange for credit at a variety of stores. To be eligible for the gift card, your child must be in the age range for this study, you need to submit a valid consent statement, and we need to see that there is a child with you. But we will send a gift card even if you do not finish the whole study or if we are not able to use your child's data. There are no other direct benefits to you or others from taking part in this research.",
+            "purpose": "We are interested in whether both adults and children understand the complex dynamics involved in changing physical events. We are looking at whether we can decode subtle changes in children’s emotional expressions as they watch block towers being built. If so, we might be able to get a continuous measure of children’s changing expectations about the stability of the tower and see whether children’s intuitive physics is sensitive to dynamic changes in events.",
+            "procedures": "First you will review some instructions, and get set up for the study. During the study, your child can sit anywhere where they can comfortably see the screen. They will see three movies of block towers being built. We will ask your child to watch the video and will record your child’s reactions to the videos to see what they attend to and react to. There are no expected risks from taking part in this study.",
+            "payment": "After you finish the study, we will email you an Amazon gift card within three days. We pay $15/hour prorated for the length of the study with a minimum payment of $5/study. We anticipate that this study will take ten minutes to complete so you will receive a $5 gift card. ",
             "research_rights_statement": "This research has been reviewed and approved by an Institutional Review Board (“IRB”), a group of people who oversee research involving humans as participants. Information to help you understand research is on-line at https://templatestudiesinstitute.edu/irb. You may talk to a IRB staff member at (123) 456-7890 or IRBAdmin@tsi.edu for any of the following: 1) Your questions, concerns, or complaints are not being answered by the research team; 2) you cannot reach the research team; 3) you want to talk to someone besides the research team; 4) you have questions about your rights as a research subject; 5) you want to get information or provide input about this research.",
-            "PIContact": "Kristine Zheng (kxzheng@mit.edu)"
+            "PIContact": "Laura Schulz (contact: lschulz@mit.edu)"
         },
         "positioning-config": {
             "kind": "exp-video-config-quality",
@@ -123,9 +134,9 @@ function generateProtocol() {
         "my-exit-survey": {
             "kind": "exp-lookit-exit-survey",
             "debriefing": {
-                "text": "One way scientists discover how babies develop and learn--and how humans think in general--is to ask what's in the child brain's \"toolbox\" and what’s learned from experience. In this study, we asked whether children can already mentally reason about physics, such as gravity. In order to understand and use the objects in their environment, babies need to know - or figure out - how objects interact with each other when stacked or balance. We tested this by recording how your child looked at and reasoned about videos of “Jenga” like tower stacking, with blocks being placed one by one on each other with no, little, or some offset. They were asked to click the ‘Next’ button when they believed the tower would fall.  Above is a picture from all the videos that your child saw during the study. Your child’s pattern of looking and decision about the towers falling helps to answer the question of whether stability reasoning is a is a core, built-in ability or something that is learned through experience. That in turn can inform how active a role your child plays in their own learning!<br><br>Thank you for participating in our study! Within three days, once we confirm your consent video, we will email you a $7 Tango gift card which you can exchange for credit at a variety of stores. If you have any questions, please don’t hesitate to contact us at kxzheng@mit.edu! <br><br>",
+                "text": "<b>Purpose</b> <br> Thank you for participating in our experiment! This might seem like a very simple task: just watching movies of block towers being built. However, your child is helping us learn something important: whether children’s emotional expressions correlate with changes in the stability of these block towers. <br><br><b>Experimental Design</b> <br> We showed your child three short movies of blocks being stacked one by one. Your child’s facial expressions and body language was recorded as they watched the movies. We expect that children may react with a subtle change in their emotional expressions to certain moments in the videos when the block tower becomes unstable. However, we might be wrong! Your child may have no particular reaction to our movies or no reaction that correlates with our predictions. In our studies, the children are always correct; their responses tell us if, when, and how our methods and ideas need to change. <br><br><b>Why this matters</b><br>The physical properties of events involve many complex dynamics. We are interested in children’s sensitivity to these complex changes. We can’t easily ask young children to give us a rating of a tower’s stability on a 0-100 scale at each time point as the tower is being built but we think we might be able to use children’s natural reactions (e.g., increasing suspense or anticipation) to get a continuous measure of their changing expectations about the towers’ stability. We can then see if children’s responses correlate with models of the actual physics and changing stability of these towers – and if children’s expectations about these events change with age and experience. This study might give us insight into the development of our intuitions about  objects and forces and help us understand more about how children learn about the physical world. Thank you so much for participating in our study! Research on child development would not be possible without your support! <br><br>",
                 "image": {
-                    "src": "https://s3.amazonaws.com/9.85-jenga-towers-2/video+screenshots+1.png",
+                    "src": "https://myblocks.s3.us-east-2.amazonaws.com/example_image.png",
                     "alt": "video screenshots"
                 },
                 "title": "Thank you for participating in our study!"
@@ -389,14 +400,15 @@ function generateProtocol() {
     let sequences = [
         "instructions",
         "video-config",
-        //"video-consent",
-        //"positioning-config",
-        //"instructions-2",
+        "video-consent",
+        "positioning-config",
+        "instructions-2",
         "start-recording-with-video",
         "block-trials1",
         "block-trials2",
         "block-trials3",
-        //"study-completion",
+        "stop-recording-with-video",
+        "study-completion",
         "my-exit-survey"
     ]
 
