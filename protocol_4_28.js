@@ -39,7 +39,7 @@ function generateProtocol() {
                 {
                     "title": "Requirements",
                     "listblocks": [{
-                            "text": "A computer or tablet with a stable internet connection."
+                            "text":  "Please note you will need a laptop or desktop computer (not a mobile device) running Chrome or Firefox to participate."
                         },
                         {
                             "text": "A quiet and comfortable space for you and your child."
